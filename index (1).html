@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hidden Gems Thrift - Y2K Pop</title>
+    <link href="https://fonts.googleapis.com/css2?family=VT323&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    
+    <style>
+        /* BASE & TYPOGRAPHY */
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #F0EFFF; 
+            color: #333333;
+            overflow-x: hidden;
+        }
+        
+        /* Aksen Warna */
+        :root {
+            --primary-color: #7B68EE; /* Medium Slate Blue - Aksen Utama */
+            --secondary-color: #D8B9FF; /* Light Lilac - Aksen Kedua/Background */
+            --text-color: #333333;
+            --background-light: #FFFFFF;
+        }
+
+        /* HEADER & Y2K STYLING */
+        header {
+            background-color: var(--primary-color);
+            color: var(--background-light);
+            padding: 2.5em 0;
+            text-align: center;
+            border-bottom: 5px solid #4A3E9C; 
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 3.5em;
+            font-weight: 700;
+            font-family: 'VT323', monospace; 
+            letter-spacing: 5px;
+            text-shadow: 3px 3px 0 #D8B9FF; 
+        }
+
+        header p {
+            margin: 0.5em 0 0;
+            font-size: 1.2em;
+            color: #EFE8FF;
+        }
+        
+        /* NAVIGATION BAR */
+        nav {
+            background-color: var(--background-light);
+            padding: 1em 0;
+            text-align: center;
+            border-bottom: 1px solid var(--secondary-color);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        nav a, nav button {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.05em;
+            margin: 0 15px;
+            padding: 8px 15px;
+            border-radius: 20px; 
+            transition: background-color 0.3s, transform 0.2s;
+            border: 2px solid var(--secondary-color);
+            background-color: transparent;
+            cursor: pointer;
+        }
+        nav a:hover, nav button:hover {
+            background-color: var(--secondary-color);
+            color: var(--text-color);
+            transform: translateY(-2px); 
+        }
+
+        /* CONTAINER & SECTIONS */
+        .container {
+            width: 90%;
+            max-width: 1100px;
+            margin: auto;
+            padding: 2em 0;
+        }
+
+        section h2 {
+            text-align: center;
+            color: var(--primary-color);
+            font-size: 2.2em;
+            margin-bottom: 1em;
+            padding-bottom: 10px;
+            border-bottom: 3px dashed var(--secondary-color);
+        }
+        
+        .promo-deskripsi {
+            text-align: center;
+            padding: 2em;
+            background-color: var(--secondary-color); 
+            color: var(--primary-color);
+            font-size: 1.1em;
+            border-radius: 15px;
+            margin-bottom: 3em;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* --- DESKRIPSI BARU DITAMBAHKAN DI SINI --- */
+        .deskripsi-penjelasan {
+            text-align: left;
+            margin-bottom: 15px;
+            padding: 20px; /* Padding lebih besar */
+            background-color: #FFFFFF;
+            border: 2px solid var(--primary-color); /* Border lebih tebal */
+            border-radius: 10px;
+        }
+        .deskripsi-penjelasan h3 {
+            color: #4A3E9C; /* Warna lebih gelap */
+            border-bottom: 2px solid var(--secondary-color); /* Garis bawah tebal */
+            padding-bottom: 8px;
+            margin-top: 0;
+            font-size: 1.6em; /* Font lebih besar */
+        }
+        /* ------------------------------------------- */
+
+        #promosi {
+            background: linear-gradient(135deg, var(--primary-color), #4A3E9C);
+            color: white;
+            text-align: center;
+            padding: 3em;
+            margin-bottom: 3em;
+            border-radius: 15px;
+            box-shadow: 6px 6px 0 var(--secondary-color);
+            border: 3px solid white;
+            transition: transform 0.3s;
+        }
+        
+        #promosi:hover {
+            transform: translate(-3px, -3px);
+            box-shadow: 9px 9px 0 var(--secondary-color);
+        }
+
+        /* PRODUK */
+        .produk-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .produk-item {
+            background-color: var(--background-light);
+            border-radius: 12px;
+            overflow: hidden;
+            text-align: center;
+            transition: box-shadow 0.3s, transform 0.3s;
+            border: 1px solid var(--secondary-color);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15); 
+        }
+
+        .produk-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 20px rgba(0, 0, 0, 0.25);
+        }
+
+        .produk-item img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            transition: transform 0.4s;
+        }
+
+        .produk-info {
+            padding: 20px;
+        }
+        
+        /* DESKRIPSI PRODUK BARU */
+        .produk-info h3 {
+            font-size: 1.5em;
+            margin-bottom: 5px;
+        }
+        .produk-info span {
+            display: block;
+            font-size: 0.9em;
+            color: #6a6a6a;
+            margin-bottom: 10px;
+        }
+        
+        .produk-info p {
+            font-size: 1.3em;
+            color: var(--primary-color);
+            font-weight: 700;
+            margin-top: 10px;
+        }
+        /* END DESKRIPSI PRODUK BARU */
+
+        .produk-info button {
+            background-color: var(--primary-color);
+            color: white;
+            border: 2px solid var(--background-light);
+            padding: 12px 25px;
+            border-radius: 8px;
+            font-weight: 600;
+            box-shadow: 3px 3px 0 #4A3E9C;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .produk-info button:hover {
+            background-color: #4A3E9C;
+            transform: translate(2px, 2px);
+            box-shadow: 1px 1px 0 #4A3E9C;
+        }
+        
+        /* MODAL STYLING (THE POP-OUT EFFECT) */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.75);
+            display: none; 
+            justify-content: center;
+            align-items: center;
+            z-index: 2000;
+            overflow-y: auto;
+        }
+        
+        #keranjang, #pembayaran-section, #konfirmasi {
+            background-color: var(--background-light);
+            padding: 30px;
+            border-radius: 15px;
+            width: 90%;
+            max-width: 450px;
+            margin: 20px auto;
+            position: relative;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+        }
+        
+        .close-btn {
+            position: absolute;
+            top: 15px;
+            right: 25px;
+            font-size: 2em;
+            font-weight: bold;
+            color: var(--primary-color);
+            cursor: pointer;
+            text-shadow: 1px 1px 0 var(--secondary-color);
+            line-height: 1;
+        }
+
+        #keranjang h2, #pembayaran-section h2, #konfirmasi h3 {
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--secondary-color);
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .cart-item {
+            display: flex;
+            justify-content: space-between;
+            border-bottom: 1px dashed var(--secondary-color);
+            padding: 15px 0;
+        }
+
+        .cart-total {
+            text-align: right;
+            font-size: 1.5em;
+            font-weight: 700;
+            margin-top: 1.5em;
+            color: var(--primary-color);
+        }
+
+        /* Tombol Modal */
+        .checkout-button-keranjang, .checkout-button, .dana-button, .gopay-button, .maps-button {
+            display: block;
+            width: 100%;
+            padding: 18px;
+            background-color: var(--primary-color);
+            color: white;
+            text-align: center;
+            border: 2px solid var(--secondary-color);
+            border-radius: 8px;
+            font-size: 1.3em;
+            cursor: pointer;
+            margin-top: 1.5em;
+            font-weight: 600;
+            box-shadow: 4px 4px 0 #4A3E9C;
+            transition: all 0.2s;
+        }
+        .checkout-button-keranjang:hover, .checkout-button:hover, .dana-button:hover, .gopay-button:hover, .maps-button:hover {
+            background-color: #4A3E9C;
+            transform: translate(2px, 2px);
+            box-shadow: 2px 2px 0 #4A3E9C;
+        }
+        
+        /* Gaya khusus tombol e-wallet */
+        .e-wallet-button {
+            background-color: #12C85C; /* GoPay/DANA-ish green */
+            margin-bottom: 10px;
+            text-decoration: none !important; /* Hilangkan garis bawah pada link */
+        }
+        .e-wallet-button:hover {
+            background-color: #0d8c40;
+            box-shadow: 2px 2px 0 #0d8c40;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 600;
+        }
+        
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid var(--secondary-color);
+            background-color: #FFFFFF;
+            color: var(--text-color);
+            border-radius: 8px;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+            font-size: 1em;
+        }
+
+        /* FOOTER & SOCIAL ICONS */
+        footer {
+            background-color: var(--secondary-color);
+            color: var(--text-color);
+            padding: 2em 0;
+            margin-top: 5em;
+            text-align: center;
+            border-top: 5px solid var(--primary-color);
+        }
+            
+        .social-links {
+            margin-top: 1em;
+        }
+
+        .social-links a {
+            color: var(--primary-color);
+            font-size: 2em;
+            margin: 0 15px;
+            transition: color 0.2s;
+        }
+
+        .social-links a:hover {
+            color: #4A3E9C;
+        }
+        
+        /* Gaya Ulasan */
+        .ulasan-grid {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+        }
+        .ulasan-item {
+            background-color: var(--background-light);
+            border-radius: 10px;
+            padding: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 30%;
+        }
+        .ulasan-item h4 {
+            color: var(--primary-color);
+            margin-top: 0;
+            border-bottom: 1px solid var(--secondary-color);
+            padding-bottom: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>HIDDEN GEMS THRIFT</h1>
+        <p>Temukan Gaya Y2K Terbaik Anda!</p>
+        <p class="kelompok" style="font-size: 0.9em; margin-top: 10px;">Kelompok 1: Gina, Mitha, Nelsa</p>
+    </header>
+
+    <nav>
+        <a href="#beranda">Beranda</a>
+        <a href="#produk">Produk</a>
+        <a href="#ulasan">Ulasan</a>
+        <button onclick="openModal('keranjang-modal')">Lihat Keranjang (<span id="cart-count">0</span>)</button>
+    </nav>
+    
+    <main class="container">
+        <section id="beranda">
+            <h2>✨ Temukan Gaya Impian Anda ✨</h2>
+            <div class="promo-deskripsi">
+                <p>Setiap item telah melalui proses QC ketat dan pencucian. Kami menjamin Anda mendapatkan pakaian thrifting berkualitas tinggi, bebas noda, dan siap pakai. </p>
+                <p style="margin-top: 15px; font-weight: 600; color: #4A4A4A;">Pilih thrift, selamatkan bumi, dan tampil stylish dengan Y2K Minimalis!</p>
+            </div>
+            
+            <div class="deskripsi-penjelasan">
+                
+                <h3>Apa yang Kami Jual?</h3>
+                <p>Kami menjual produk thrifting berkualitas tinggi berupa pakaian bekas layak pakai (preloved) dengan fokus pada style Y2K pop yang unik dan otentik, seperti jaket, kemeja, dan celana. Setiap barang telah melalui proses seleksi ketat (QC), pembersihan, dan sterilisasi untuk memastikan kondisi prima, bersih, bebas noda, dan siap pakai.</p>
+                
+                <h3>Apa Manfaat Membeli Produk Ini?</h3>
+                <ol>
+                    <li>Keuntungan Finansial: Nikmati harga yang jauh lebih terjangkau dibandingkan pakaian baru. Dengan harga jaket Rp35.000, kemeja Rp30.000, dan celana Rp35.000, Anda mendapatkan keuntungan finansial yang signifikan tanpa mengorbankan gaya.</li>
+                    <li>Manfaat Lingkungan (Sustainable Fashion): Dengan memilih thrifting, Anda secara aktif mengurangi limbah tekstil dan meminimalisir polusi yang dihasilkan oleh industri fast fashion yang berlebihan. Anda ikut serta dalam upaya menjaga bumi.</li>
+                    <li>Gaya Unik & Branded: Dapatkan kesempatan untuk menemukan barang unik, vintage, atau bahkan branded yang sudah tidak diproduksi lagi. Ini memungkinkan Anda memiliki gaya personal yang berbeda dari orang lain.</li>
+                </ol>
+            </div>
+            <section id="promosi">
+                <h3>FLASH SALE MINGGU INI!</h3>
+                <p>Dapatkan DISCOUNT 20% untuk semua produk jaket!</p>
+                <p style="font-size: 1.5em; font-weight: bold;">Kode Promo: "THRIFT20"</p>
+            </section>
+        </section>
+
+        <section id="produk">
+            <h2>🛍️ Koleksi Produk Terbaru 🛍️</h2>
+            <div class="produk-grid">
+                <div class="produk-item" data-nama="Jaket Kulit Wanita 'Rebel Heart'" data-harga="35000">
+                    <img src="https://s.alicdn.com/@sc04/kf/H4c683dc2d5be4e47888488b78a4228dfZ.jpg" alt="Jaket Kulit Wanita">
+                    <div class="produk-info">
+                        <h3>Jaket Kulit Wanita 'Rebel Heart'</h3>
+                        <span>Warna: Midnight Black. Size: L. Kondisi: Excellent (9/10).</span>
+                        <p>Rp35.000</p>
+                        <button class="add-to-cart-btn">Tambahkan ke Keranjang</button>
+                    </div>
+                </div>
+                <div class="produk-item" data-nama="Kemeja Flanel 'Grunge Look'" data-harga="30000">
+                    <img src="https://cf.shopee.co.id/file/de8937196e33d8a534526a5b334d7cef" alt="Kemeja Flanel Kotak-kotak">
+                    <div class="produk-info">
+                        <h3>Kemeja Flanel 'Grunge Look'</h3>
+                        <span>Warna: Kotak Ungu/Hitam. Size: M Oversize. Kondisi: Baru Dicuci.</span>
+                        <p>Rp30.000</p>
+                        <button class="add-to-cart-btn">Tambahkan ke Keranjang</button>
+                    </div>
+                </div>
+                <div class="produk-item" data-nama="Celana Jeans Ripped 'Distressed Vibe'" data-harga="35000">
+                    <img src="https://sc04.alicdn.com/kf/H5043a4be78684de59606aed594667c2a1.jpg" alt="Celana Jeans Ripped">
+                    <div class="produk-info">
+                        <h3>Celana Jeans Ripped 'Distressed Vibe'</h3>
+                        <span>Warna: Light Denim. Size: 29. Style: High-waist, Ripped Lutut.</span>
+                        <p>Rp35.000</p>
+                        <button class="add-to-cart-btn">Tambahkan ke Keranjang</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="ulasan">
+            <h2>💬 Apa Kata Pelanggan Kami? 💬</h2>
+            <div class="ulasan-grid">
+                <div class="ulasan-item">
+                    <h4>@lilaclover01</h4>
+                    <p>"Jaket kulitnya bagus banget, kondisinya kayak baru! Pengiriman cepat, adminnya ramah. Suka banget sama toko ini! 💜"</p>
+                </div>
+                <div class="ulasan-item">
+                    <h4>@thrift_hero</h4>
+                    <p>"Kemeja flanelnya tebal dan ukurannya pas. Harga segini dapat kualitas sebagus ini, benar-benar hidden gem! Recommended!"</p>
+                </div>
+                <div class="ulasan-item">
+                    <h4>@y2kenjoyer</h4>
+                    <p>"Celana jeansnya keren, ripped-nya pas, nggak berlebihan. Langsung jadi celana favorit. Desain websitenya juga lucu, Y2K banget!"</p>
+                </div>
+            </div>
+        </section>
+        
+    </main>
+
+    <div id="keranjang-modal" class="modal-overlay">
+        <div id="keranjang">
+            <span class="close-btn" onclick="closeModal('keranjang-modal')">×</span>
+            <h2>Keranjang Belanja</h2>
+            <div id="cart-items-container">
+                <p style="text-align: center;">Keranjang Anda masih kosong.</p>
+            </div>
+            <div class="cart-total" id="cart-total-price">
+                Total: Rp0
+            </div>
+            <button class="checkout-button-keranjang" onclick="showPaymentForm()">Lanjutkan ke Pembayaran</button>
+        </div>
+    </div>
+
+    <div id="pembayaran-modal" class="modal-overlay">
+        <div id="pembayaran-section">
+            <span class="close-btn" onclick="closeModal('pembayaran-modal')">×</span>
+            <div id="pembayaran">
+                <h2>Beli Produk & Pembayaran</h2>
+                <form id="paymentForm">
+                    <div class="form-group">
+                        <label for="nama">Nama Lengkap:</label>
+                        <input type="text" id="nama" name="nama" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="alamat">Alamat Pengiriman:</label>
+                        <input type="text" id="alamat" name="alamat" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="pembayaran-metode">Metode Pembayaran:</label>
+                        <select id="pembayaran-metode" name="pembayaran-metode" required>
+                            <option value="Transfer Bank">Transfer Bank</option>
+                            <option value="DANA">DANA</option>
+                            <option value="GoPay">GoPay</option>
+                            <option value="COD">COD (Bayar di tempat)</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="checkout-button">Bayar Sekarang</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    
+    <div id="konfirmasi-modal" class="modal-overlay">
+        <div id="konfirmasi">
+            <span class="close-btn" onclick="closeModal('konfirmasi-modal')">×</span>
+            <h3>✅ Terima Kasih, Pesanan Anda Telah Diterima!</h3>
+            <p>Detail pembayaran akan muncul di sini. Silakan selesaikan pembayaran sesuai instruksi di bawah ini.</p>
+            <div id="detail-pembayaran" class="detail-pembayaran">
+            </div>
+            <button class="checkout-button" onclick="completePurchase()">Selesai & Lanjutkan Belanja</button>
+        </div>
+    </div>
+
+
+    <footer>
+        <p>© 2025 Hidden Gems Thrift. Semua Hak Cipta Dilindungi.</p>
+        <div class="social-links">
+            <a href="https://instagram.com/hiddengems_thrift" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="https://tiktok.com/@hiddengems_thrift" target="_blank" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+            <a href="https://facebook.com/hiddengems_thrift" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://wa.me/6289516427059" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+        </div>
+    </footer>
+
+    <script>
+        let cart = [];
+        const cartItemsContainer = document.getElementById('cart-items-container');
+        const cartTotalPrice = document.getElementById('cart-total-price');
+        const cartCountDisplay = document.getElementById('cart-count');
+
+        // FUNGSI UTAMA UNTUK MEMBUKA/MENUTUP MODAL (POP-OUT)
+        function openModal(id) {
+            document.getElementById(id).style.display = 'flex';
+        }
+
+        function closeModal(id) {
+            document.getElementById(id).style.display = 'none';
+        }
+        
+        // FUNGSI PINDAH MODAL: Keranjang -> Formulir Pembayaran
+        function showPaymentForm() {
+            if (cart.length === 0) {
+                   alert("Keranjang belanja Anda masih kosong. Silakan tambahkan produk terlebih dahulu.");
+                   return; 
+            }
+            closeModal('keranjang-modal');
+            openModal('pembayaran-modal');
+        }
+
+        // Fungsi baru untuk membersihkan keranjang setelah pembelian
+        function completePurchase() {
+            cart = []; // Kosongkan keranjang
+            updateCart(); // Perbarui tampilan keranjang
+            closeModal('konfirmasi-modal'); // Tutup modal konfirmasi
+        }
+
+        // FUNGSI BARU UNTUK MENAMBAHKAN EVENT LISTENER KE TOMBOL WHATSAPP
+        function addWhatsAppListener(waLink) {
+            const waButton = document.getElementById('whatsapp-konfirmasi-btn');
+            if (waButton) {
+                // Pastikan listener sebelumnya dihapus (jika ada) dan tambahkan yang baru.
+                waButton.addEventListener('click', function() {
+                    window.open(waLink, '_blank');
+                });
+            }
+        }
+
+
+        document.querySelectorAll('.add-to-cart-btn').forEach(button => {
+            button.addEventListener('click', function() {
+                const produkItem = this.closest('.produk-item');
+                const nama = produkItem.dataset.nama;
+                const harga = parseInt(produkItem.dataset.harga);
+
+                const itemExists = cart.find(item => item.nama === nama);
+
+                if (itemExists) {
+                    itemExists.jumlah++;
+                } else {
+                    cart.push({ nama: nama, harga: harga, jumlah: 1 });
+                }
+
+                updateCart();
+                openModal('keranjang-modal');
+            });
+        });
+
+        function updateCart() {
+            cartItemsContainer.innerHTML = '';
+            let total = 0;
+            let totalItems = 0;
+
+            if (cart.length === 0) {
+                cartItemsContainer.innerHTML = '<p style="text-align: center; color: var(--primary-color);">Keranjang Anda masih kosong.</p>';
+            }
+
+            cart.forEach(item => {
+                const itemElement = document.createElement('div');
+                itemElement.classList.add('cart-item');
+                itemElement.innerHTML = `
+                    <span>${item.nama} (${item.jumlah})</span>
+                    <span>Rp${(item.harga * item.jumlah).toLocaleString('id-ID')}</span>
+                `;
+                cartItemsContainer.appendChild(itemElement);
+                total += item.harga * item.jumlah;
+                totalItems += item.jumlah;
+            });
+
+            cartTotalPrice.textContent = `Total: Rp${total.toLocaleString('id-ID')}`;
+            cartCountDisplay.textContent = totalItems;
+        }
+
+        document.addEventListener('DOMContentLoaded', updateCart);
+
+        // FUNGSI LOGIKA SUBMIT FORM PEMBAYARAN - TERMASUK WHATSAPP OTOMATIS
+        document.getElementById('paymentForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const nama = document.getElementById('nama').value;
+            const alamat = document.getElementById('alamat').value;
+            const metode = document.getElementById('pembayaran-metode').value;
+            const detailPembayaranDiv = document.getElementById('detail-pembayaran');
+            
+            // Nomor WhatsApp tujuan Anda (Sama dengan footer)
+            const waNumber = "6289516427059"; 
+
+            let totalHarga = cart.reduce((sum, item) => sum + (item.harga * item.jumlah), 0);
+            
+            // Format daftar produk untuk pesan WA
+            let daftarProduk = cart.map(item => `${item.nama} (${item.jumlah}) @ Rp${item.harga.toLocaleString('id-ID')}`).join('\n- ');
+            
+            // --- MEMBUAT PESAN WHATSAPP OTOMATIS ---
+            let waMessage = `Halo Hidden Gems Thrift! 👋\n\nSaya *${nama}* telah menyelesaikan pesanan dengan detail sebagai berikut:\n\n*DETAIL PESANAN:*\n- ${daftarProduk}\n\n*Total Pembayaran:* Rp${totalHarga.toLocaleString('id-ID')}\n*Metode Pembayaran:* ${metode}\n*Alamat Pengiriman:* ${alamat}\n\nMohon diproses, terima kasih! 🙏`;
+            const encodedMessage = encodeURIComponent(waMessage);
+            const waLink = `https://wa.me/${waNumber}?text=${encodedMessage}`;
+            // -------------------------------------------------------------------------
+
+            let detailPembayaran = '';
+
+            closeModal('pembayaran-modal');
+            openModal('konfirmasi-modal');
+
+            if (metode === 'DANA' || metode === 'GoPay') {
+                // --- LOGIKA KHUSUS UNTUK DANA/GOPAY (Link pembayaran dulu) ---
+                
+                const paymentLink = metode === 'DANA' 
+                    ? 'https://link.dana.id/qr' 
+                    : 'https://link.gopay.co.id/qr'; 
+
+                detailPembayaran = `
+                    <p>Halo, "${nama}"! Pesanan Anda telah diterima.</p>
+                    <p>Total yang harus dibayarkan: <strong>Rp${totalHarga.toLocaleString('id-ID')}</strong></p>
+                    <p>Langkah 1: **Pastikan Anda menggunakan ponsel.** Klik tombol di bawah ini untuk membuka aplikasi <strong>${metode}</strong> dan bayar.</p>
+                    
+                    <a href="${paymentLink}" target="_blank" class="checkout-button e-wallet-button">Bayar Sekarang via ${metode}</a>
+                    
+                    <p style="margin-top: 20px;">Langkah 2: Setelah pembayaran berhasil, klik tombol WhatsApp di bawah ini untuk konfirmasi.</p>
+                    
+                    <button id="whatsapp-konfirmasi-btn" class="checkout-button dana-button">Konfirmasi Bukti Bayar via WhatsApp</button>
+                `;
+                
+                // PENTING: Panggil fungsi addWhatsAppListener setelah innerHTML disetel.
+                detailPembayaranDiv.innerHTML = detailPembayaran;
+                addWhatsAppListener(waLink);
+
+            } else if (metode === 'Transfer Bank') {
+                // --- LOGIKA TRANSFER BANK (Langsung konfirmasi WA otomatis) ---
+                detailPembayaran = `
+                    <p>Halo, "${nama}"! Pesanan Anda telah diterima.</p>
+                    <p>Total yang harus dibayarkan: <strong>Rp${totalHarga.toLocaleString('id-ID')}</strong></p>
+                    <p>Silakan lakukan transfer ke rekening:<br><strong>Bank BSI - 7242210788 (A.N. Hidden Gems Thrift)</strong></p>
+                    <p style="margin-top: 15px; color: red;">Jendela chat WhatsApp *akan terbuka* secara otomatis. Jika diblokir oleh browser, silakan klik tombol di bawah ini.</p>
+                    <button id="whatsapp-konfirmasi-btn" class="checkout-button dana-button">Konfirmasi Pesanan via WhatsApp</button>
+                `;
+                
+                // PENTING: Panggil fungsi addWhatsAppListener setelah innerHTML disetel.
+                detailPembayaranDiv.innerHTML = detailPembayaran;
+                addWhatsAppListener(waLink);
+
+                // Buka WhatsApp Otomatis (Cenderung diblokir, tapi dicoba)
+                window.open(waLink, '_blank'); 
+
+            } else if (metode === 'COD') {
+                // --- LOGIKA COD (Langsung konfirmasi WA otomatis) ---
+                detailPembayaran = `
+                    <p>Halo, "${nama}"! Pesanan COD Anda telah diterima.</p>
+                    <p>Total yang harus dibayarkan: <strong>Rp${totalHarga.toLocaleString('id-ID')}</strong> (Bayar ke kurir).</p>
+                    <p style="margin-top: 15px; color: red;">Jendela chat WhatsApp *akan terbuka* secara otomatis. Jika diblokir oleh browser, silakan klik tombol di bawah ini untuk mengkonfirmasi alamat pengiriman.</p>
+                    <button id="whatsapp-konfirmasi-btn" class="checkout-button maps-button">Konfirmasi Pesanan via WhatsApp</button>
+                `;
+                
+                // PENTING: Panggil fungsi addWhatsAppListener setelah innerHTML disetel.
+                detailPembayaranDiv.innerHTML = detailPembayaran;
+                addWhatsAppListener(waLink);
+
+                // Buka WhatsApp Otomatis (Cenderung diblokir, tapi dicoba)
+                window.open(waLink, '_blank');
+            }
+
+        });
+    </script>
+
+</body>
+</html>
